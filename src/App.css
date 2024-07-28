@@ -1,6 +1,11 @@
 #root {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .logo {
   height: 18em;
   padding: 1.5em;
