@@ -1,0 +1,20 @@
+@import '../../../utilities/_colors.css';
+
+.sidebar {
+    width: 255px;
+    height: calc(100vh - 82px);
+    background-color: var(--COLOR_LIGHT);
+    transition: all 0.5s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 3px 6px 10px 2px var(--COLOR_GRAY_WITH_TRANSPARENCY);
+    padding: 25px;
+  }
+  
+  .sidebar.is-open {
+    margin-left: 0;
+    transition: 0.5s;
+  }
+  

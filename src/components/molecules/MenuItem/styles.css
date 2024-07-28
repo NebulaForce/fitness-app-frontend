@@ -1,0 +1,46 @@
+@import '../../../utilities/_colors.css';
+
+.option-container {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 9px;
+  position: relative;
+  padding: 0.5rem 0 !important;
+
+  .icon {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+
+  .item-label {
+    padding-left: 6px !important;
+    display: flex !important;
+    color: var(--COLOR_GRAY) !important;
+    align-items: center;
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+    
+  .selected {
+    color: var(--COLOR_DARK_BLUE) !important;
+    font-weight: 900;
+  }
+
+  .closed-menu-icon {
+    position: absolute;
+    right: 28px;
+  }
+
+  .selected-icon {
+    filter: invert(53%) sepia(57%) saturate(5374%) hue-rotate(167deg) brightness(94%) contrast(101%);
+  }
+}
+
+.selected-container {
+  background-color: var(--COLOR_GRAY_WITH_TRANSPARENCY);
+}
+
+.not-displayed {
+  display: none !important;
+}

@@ -1,0 +1,18 @@
+@import '../../../utilities/_colors.css';
+
+.dashboard-main-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard-content {
+  width: calc(100vw - 255px);
+  height: calc(100vh - 82px);
+  overflow: scroll;
+  background-color: var(--COLOR_WHITE);
+  padding: 2rem;
+}
+
+.wider-dashboard {
+  width: calc(100vw - 70px);
+}
