@@ -1,17 +1,13 @@
 import './App.css'
-import ConnectButton from './utilities/ConnectButton'
-import logo from './assets/logo.svg'
+import { BrowserRouter as Router } from "react-router-dom"
+import CustomRoutes from './navigation/CustomRoutes'
 
 function App() {
 
   return (
-    <>
-    <div className='logo-container'>
-      <img src={logo} className="logo" alt="Move&Mint logo" />
-    </div>
-      
-    <ConnectButton />
-    </>
+    <Router>
+      <CustomRoutes />
+    </Router>
   )
 }
 
