@@ -1,7 +1,10 @@
 import ConnectButton from "../../../utilities/ConnectButton"
 import logo from "../../../assets/logo.svg"
+import useRedirectOnConnect from "../../../hooks/useRedirectOnConnect";
 
 const Main = () => {
+  useRedirectOnConnect();
+  
   return (
     <>
       <div className='logo-container'>
