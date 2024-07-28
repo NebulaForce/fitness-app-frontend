@@ -7,8 +7,6 @@ import { WagmiProvider } from 'wagmi'
 import { optimismSepolia } from 'wagmi/chains'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-import { WalletProvider } from '../context/WalletContext.tsx'
-
 
 const queryClient = new QueryClient()
 const projectId = '521a47a7941cb38e29ab641f467b61f1'
@@ -37,9 +35,7 @@ export function Web3ModalProvider() {
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <WalletProvider>
-          <App />
-        </WalletProvider>
+        <App />
       </QueryClientProvider>
     </WagmiProvider>
   )
