@@ -11,14 +11,14 @@ export interface DashboardProps {
 
 const DashboardTemplate: FC<DashboardProps> = ({selectedItemId, children}) => {
 
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   return (
     <>
       <Header />
       <div className="dashboard-main-container">
-        <SideMenu isOpen={sidebarOpen} selectedItemId={selectedItemId}/>
+        {/* <SideMenu isOpen={sidebarOpen} selectedItemId={selectedItemId}/> */}
         <div className={classNames("dashboard-content", { "wider-dashboard": !sidebarOpen })}>
           {children}
         </div>

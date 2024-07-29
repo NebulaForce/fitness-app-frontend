@@ -14,5 +14,6 @@
 }
 
 .wider-dashboard {
-  width: calc(100vw - 70px);
+  /* width: calc(100vw - 70px); */
+  width: 100vw;
 }
