@@ -56,7 +56,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--COLOR_DARK_BLUE);
 }
 button:focus,
 button:focus-visible {
@@ -78,4 +78,7 @@ button:focus-visible {
 
 w3m-button {
   --wui-border-radius-m: 8px;
+  --wui-color-gray-glass-005: rgba(255,255,255, 1);
+  --wui-color-accent-100: var(--COLOR_PRIMARY);
+  --wui-color-accent-090: var(--COLOR_DARK_BLUE);
 }

@@ -12,7 +12,7 @@
     box-shadow: 3px 6px 10px 2px var(--COLOR_GRAY_WITH_TRANSPARENCY);
     padding: 25px;
   }
-  
+
   .sidebar.is-open {
     margin-left: 0;
     transition: 0.5s;

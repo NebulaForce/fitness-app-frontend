@@ -1,3 +1,3 @@
-export default function ConnectButton() {
-  return <w3m-button label="Login" balance="hide" />
+export default function ConnectButton({label}: {label: string}) {
+  return <w3m-button label={label} balance="hide" />
 }

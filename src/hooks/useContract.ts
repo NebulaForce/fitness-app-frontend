@@ -1,11 +1,14 @@
-import { useReadContract } from 'wagmi'
+import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
 import { abi } from '../utilities/abi'
-import { EMPTY_STRING } from '../constants/common'
+import { ADDRESS_ZERO, EMPTY_STRING } from '../constants/common'
 
-export function useContract(accountAddress: `0x${string}`) {
+export function useContract() {
 
   const contractAddress = '0xde0e0b348a3e8dc68993132e1a9ed3d6f392be19'; //TODO: Change this to the address of your deployed contract
 
+  const { address: accountAddress } = useAccount();
+
+  // Reading contract data
   const { data: owner } = useReadContract({
     abi,
     address: contractAddress,
@@ -16,17 +19,17 @@ export function useContract(accountAddress: `0x${string}`) {
     abi,
     address: contractAddress,
     functionName: 'coaches',
-    args: [accountAddress],
+    args: [accountAddress || ADDRESS_ZERO],
   });
 
   const { data: userData } = useReadContract({
     abi,
     address: contractAddress,
     functionName: 'users',
-    args: [accountAddress],
+    args: [accountAddress || ADDRESS_ZERO],
   });
 
-  // Define utility functions
+  // Utility functions for roles
   const isOwner = owner === accountAddress;
   
   const isCoach = coachData?.[0] !== EMPTY_STRING && coachData?.[1] !== EMPTY_STRING;
@@ -52,12 +55,33 @@ export function useContract(accountAddress: `0x${string}`) {
     return 'none';
   };
 
+  // Write to contract
+  const { writeContract, data: txData, error: txError, status: txStatus } = useWriteContract();
+
+  const registerNewUser = async (name: string, email: string) => {
+    try {
+      await writeContract({
+        abi,
+        address: contractAddress,
+        functionName: 'register',
+        args: [name, email],
+      });
+    } catch (error) {
+      console.error('Error executing registerUser:', error);
+      throw error;
+    }
+  };
+
   return {
     getOwner: () => owner,
     isOwner,
     isCoach,
     isUser,
     getRole,
+    registerNewUser,
+    txData,
+    txError,
+    txStatus
   };
 
 };

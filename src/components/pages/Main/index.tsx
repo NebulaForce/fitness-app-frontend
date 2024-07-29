@@ -18,7 +18,7 @@ const Main = () => {
         <img src={logo} className="logo" alt="Move&Mint logo" />
       </div>
       <Button color="primary" size="lg" className="my-5" onClick={handleGetStartedClick}>Get Started</Button>
-      <ConnectButton />
+      <ConnectButton label="Login" />
     </>
   );
 };
