@@ -7,6 +7,11 @@ import { WagmiProvider } from 'wagmi'
 import { optimismSepolia } from 'wagmi/chains'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+declare module 'wagmi' {
+  interface Register {
+    config: typeof config
+  }
+}
 
 const queryClient = new QueryClient()
 const projectId = '521a47a7941cb38e29ab641f467b61f1'
