@@ -33,7 +33,7 @@ const config = defaultWagmiConfig({
 createWeb3Modal({
   wagmiConfig: config,
   projectId,
-  enableAnalytics: true // Optional - defaults to your Cloud configuration
+  enableAnalytics: false // Optional - defaults to your Cloud configuration
 })
 
 export function Web3ModalProvider() {
