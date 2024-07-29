@@ -1,4 +1,4 @@
-import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
+import { useAccount, useReadContract, useWriteContract } from 'wagmi'
 import { abi } from '../utilities/abi'
 import { ADDRESS_ZERO, EMPTY_STRING } from '../constants/common'
 
