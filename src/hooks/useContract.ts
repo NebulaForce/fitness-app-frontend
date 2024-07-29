@@ -2,70 +2,62 @@ import { useReadContract } from 'wagmi'
 import { abi } from '../utilities/abi'
 import { EMPTY_STRING } from '../constants/common'
 
-export function useContract(accountAddress: `0x${string}` | undefined) {
+export function useContract(accountAddress: `0x${string}`) {
 
   const contractAddress = '0xde0e0b348a3e8dc68993132e1a9ed3d6f392be19'; //TODO: Change this to the address of your deployed contract
 
-  const getOwner = async () => {
-    const owner = await useReadContract({
-      abi,
-      address: contractAddress,
-      functionName: 'owner'
-    })
+  const { data: owner } = useReadContract({
+    abi,
+    address: contractAddress,
+    functionName: 'owner',
+  });
 
-    return owner.data;
-  }
+  const { data: coachData } = useReadContract({
+    abi,
+    address: contractAddress,
+    functionName: 'coaches',
+    args: [accountAddress],
+  });
 
-  const isOwner = async () => {
-    return await getOwner() === accountAddress;
-  }
+  const { data: userData } = useReadContract({
+    abi,
+    address: contractAddress,
+    functionName: 'users',
+    args: [accountAddress],
+  });
 
-  const isCoach = async (address: `0x${string}`) => {
-    const result = await useReadContract({
-      abi,
-      address: contractAddress,
-      functionName: 'coaches',
-      args: [address]
-    }).data;
+  // Define utility functions
+  const isOwner = owner === accountAddress;
+  
+  const isCoach = coachData?.[0] !== EMPTY_STRING && coachData?.[1] !== EMPTY_STRING;
 
-    return (result?.[0] !== EMPTY_STRING && result?.[1] !== EMPTY_STRING);
-  };
+  const isUser = userData?.[0] !== EMPTY_STRING && userData?.[1] !== EMPTY_STRING;
 
-  const isUser = async (address: `0x${string}`) => {
-    const result = await useReadContract({
-      abi,
-      address: contractAddress,
-      functionName: 'users',
-      args: [address]
-    }).data;
-
-    return (result?.[0] !== EMPTY_STRING && result?.[1] !== EMPTY_STRING);
-  };
-
-  const getRole = async () => {
+  const getRole = () => {
     if (accountAddress) {
-      if (await isOwner()) {
+      if (isOwner) {
         return 'owner';
       }
 
-      if (await isCoach(accountAddress)) {
+      if (isCoach) {
         return 'coach';
       }
 
-      if (await isUser(accountAddress)) {
+      if (isUser) {
         return 'user';
       }
+
       return 'none';
     }
     return 'none';
-  }
+  };
 
   return {
-    getOwner,
+    getOwner: () => owner,
     isOwner,
     isCoach,
     isUser,
-    getRole
+    getRole,
   };
 
 };
