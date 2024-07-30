@@ -1,6 +1,9 @@
 import { useContract } from "../../../hooks/useContract";
 import { Button } from "reactstrap";
 import './styles.css';
+import DashboardAdmin from "../DashboardAdmin";
+import DashboardCoach from "../DashboardCoach";
+import DashboardUser from "../DashboardUser";
 
 const Home = () => {
   const { getRole } = useContract();
@@ -9,17 +12,11 @@ const Home = () => {
 
   return (
     role === 'owner' ? (
-      <div>
-        <h1>Owner Home</h1>
-      </div>
+      <DashboardAdmin />
     ) : role === 'coach' ? (
-      <div>
-        <h1>Coach Home</h1>
-      </div>
+      <DashboardCoach />
     ) : role === 'user' ? (
-      <div>
-        <h1>User Home</h1>
-      </div>
+      <DashboardUser />
     ) : (
       <div className="unauthorizedContainer">
         <h1>Unauthorized</h1>

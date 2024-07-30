@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import Header from '../../molecules/Header';
-import gymBg from '../../../assets/gym-v2.jpg';
+import gymBg from '../../../assets/gym.jpg';
 import ConnectButton from '../../../utilities/ConnectButton';
 import { useAccount } from 'wagmi';
 import { useContract } from '../../../hooks/useContract';

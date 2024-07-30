@@ -9,7 +9,7 @@
   width: calc(100vw - 255px);
   height: calc(100vh - 82px);
   overflow: scroll;
-  background-color: var(--COLOR_WHITE);
+  background-color: #f9f9f9;
   padding: 2rem;
 }
 
