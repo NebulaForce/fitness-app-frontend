@@ -4,9 +4,9 @@ import { LOG_MEASUREMENT, SET_GOALS } from "../../../constants/routes";
 const DashboardCoach = () => {
 
   return (
-    <div>
-      <Button className="bg-primary text-white mr-10" href={SET_GOALS}>Set goals</Button>
-      <Button className="bg-danger text-white" href={LOG_MEASUREMENT}>Log measurement</Button>
+    <div className="flex flex-row w-full h-full justify-center items-center">
+      <Button className="bg-primary text-white mr-10 p-2 rounded" href={SET_GOALS}>Set goals</Button>
+      <Button className="bg-danger text-white p2-rounded" href={LOG_MEASUREMENT}>Log measurement</Button>
     </div>
   );
 };
