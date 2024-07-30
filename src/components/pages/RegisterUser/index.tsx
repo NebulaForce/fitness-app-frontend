@@ -6,6 +6,7 @@ import ConnectButton from '../../../utilities/ConnectButton';
 import { useAccount } from 'wagmi';
 import { useContract } from '../../../hooks/useContract';
 import { useNavigate } from 'react-router-dom';
+import { HOME } from '../../../constants/routes';
 
 const RegisterUser = () => {
   const { isConnected } = useAccount();
@@ -26,7 +27,7 @@ const RegisterUser = () => {
   };
 
   const handleGoToDashboard = () => {
-    navigate('/home');
+    navigate(HOME);
   };
 
   return (

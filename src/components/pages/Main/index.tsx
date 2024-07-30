@@ -3,13 +3,14 @@ import logo from "../../../assets/logo.svg"
 import { useNavigate } from 'react-router-dom'
 import { Button } from "reactstrap"
 import useAuth from "../../../hooks/useAuth"
+import { REGISTER_USER } from "../../../constants/routes"
 
 const Main = () => {
   useAuth();
   const navigate = useNavigate();
 
   const handleGetStartedClick = () => {
-    navigate('/register-user');
+    navigate(REGISTER_USER);
   };
   
   return (

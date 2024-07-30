@@ -4,6 +4,7 @@ import './styles.css';
 import DashboardAdmin from "../DashboardAdmin";
 import DashboardCoach from "../DashboardCoach";
 import DashboardUser from "../DashboardUser";
+import { REGISTER_USER } from "../../../constants/routes";
 
 const Home = () => {
   const { getRole } = useContract();
@@ -20,7 +21,7 @@ const Home = () => {
     ) : (
       <div className="unauthorizedContainer">
         <h1>Unauthorized</h1>
-        <Button href="/register-user" className="goBackBtn" size="lg">Sign Up</Button>
+        <Button href={REGISTER_USER} className="goBackBtn" size="lg">Sign Up</Button>
       </div>
     )
   );
