@@ -8,5 +8,7 @@ import AssignCoach from "./AssignCoach";
 import LogMeasurement from "./LogMeasurement";
 import RegisterCoach from "./RegisterCoach";
 import SetGoals from "./SetGoals";
+import Progress from "./Progress";
+import Measurement from "./Measurement";
 
-export { Main, Home, RegisterUser, DashboardAdmin, DashboardCoach, DashboardUser, AssignCoach, LogMeasurement, RegisterCoach, SetGoals };
+export { Main, Home, RegisterUser, DashboardAdmin, DashboardCoach, DashboardUser, AssignCoach, LogMeasurement, RegisterCoach, SetGoals, Progress, Measurement };

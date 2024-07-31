@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
-import { ASSIGN_COACH, HOME, LOG_MEASUREMENT, MAIN, REGISTER_COACH, REGISTER_USER, SET_GOALS } from '../constants/routes'
-import { AssignCoach, Home, LogMeasurement, Main, RegisterCoach, RegisterUser, SetGoals } from '../components/pages'
+import { ASSIGN_COACH, HOME, LOG_MEASUREMENT, MAIN, MEASUREMENT, PROGRESS, REGISTER_COACH, REGISTER_USER, SET_GOALS } from '../constants/routes'
+import { AssignCoach, Home, LogMeasurement, Main, Measurement, Progress, RegisterCoach, RegisterUser, SetGoals } from '../components/pages'
 import PrivateRoute from './PrivateRoute'
 
 const CustomRoutes = () => {
@@ -46,6 +46,22 @@ const CustomRoutes = () => {
         element={
           <PrivateRoute>
             <SetGoals />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path={PROGRESS}
+        element={
+          <PrivateRoute>
+            <Progress />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path={MEASUREMENT}
+        element={
+          <PrivateRoute>
+            <Measurement />
           </PrivateRoute>
         }
       />
