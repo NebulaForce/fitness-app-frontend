@@ -38,7 +38,7 @@ const RegisterCoach = () => {
           {
             txStatus === "success" ? (
               <div className='flex flex-col justify-center items-center gap-y-4'>
-                <h1 className="text-center max-w-[300px] leading-[60px] mb-8 font-black">Coach added!</h1>
+                <h1 className="text-center max-w-[80%] leading-[60px] mb-8 font-black">Coach added!</h1>
                 <h2 className="text-center mb-8 font-medium text-2xl">You have successfully added a new coach!</h2>
                 <Button className='text-center' onClick={handleGoToDashboard}>
                   Go Back

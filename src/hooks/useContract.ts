@@ -4,7 +4,7 @@ import { ADDRESS_ZERO, EMPTY_STRING } from '../constants/common'
 
 export function useContract() {
 
-  const contractAddress = '0xde0e0b348a3e8dc68993132e1a9ed3d6f392be19'; //TODO: Change this to the address of your deployed contract
+  const contractAddress = '0xd11a25b63a871aA7C65417062e0BCe6348Fb05B5'; //TODO: Change this to the address of your deployed contract
 
   const { address: accountAddress } = useAccount();
 
@@ -100,6 +100,34 @@ export function useContract() {
     }
   };
 
+  const saveGoal = async (fatPercentage: number, muscleMass: number, user: `0x${string}`) => {
+    try {
+      await writeContract({
+        abi,
+        address: contractAddress,
+        functionName: 'setGoal',
+        args: [fatPercentage, muscleMass, user],
+      });
+    } catch (error) {
+      console.error('Error executing assignCoach:', error);
+      throw error;
+    }
+  };
+
+  const logMeasurement = async (weight: number, bmi: number, fatPercentage: number, visceralFat: number, bodyWater: number, muscleMass: number, user: `0x${string}`) => {
+    try {
+      await writeContract({
+        abi,
+        address: contractAddress,
+        functionName: 'logMeasurement',
+        args: [weight, bmi, fatPercentage, visceralFat, bodyWater, muscleMass, user],
+      });
+    } catch (error) {
+      console.error('Error executing assignCoach:', error);
+      throw error;
+    }
+  };
+
   return {
     getOwner: () => owner,
     isOwner,
@@ -109,6 +137,8 @@ export function useContract() {
     registerNewUser,
     registerNewCoach,
     assignCoach,
+    saveGoal,
+    logMeasurement,
     txData,
     txError,
     txStatus
