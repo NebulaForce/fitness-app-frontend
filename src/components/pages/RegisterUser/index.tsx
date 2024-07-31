@@ -7,6 +7,7 @@ import { useAccount } from 'wagmi';
 import { useContract } from '../../../hooks/useContract';
 import { useNavigate } from 'react-router-dom';
 import { HOME } from '../../../constants/routes';
+import BgTemplate from '../../templates/BgTemplate';
 
 const RegisterUser = () => {
   const { isConnected } = useAccount();
@@ -34,14 +35,8 @@ const RegisterUser = () => {
     <div className='flex flex-col'>
       <Header />
 
-      <div
-        className="relative w-full h-[100vh] max-h-custom bg-cover bg-center flex flex-col justify-center items-center"
-        style={{
-          backgroundImage: `url(${gymBg})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-primary bg-opacity-20 backdrop-blur-sm"></div>
-        <div className="relative z-10 p-8 rounded-2xl w-fit bg-transparent-white flex flex-col gap-y-8 min-w-[calc(100%-2rem)] md:min-w-[500px]">
+      <BgTemplate bgImage={gymBg}>
+        <div className="p-8 rounded-2xl w-fit bg-transparent-white flex flex-col gap-y-8 min-w-[calc(100%-2rem)] md:min-w-[500px]">
           {
             txStatus === "success" ? (
               <div className='flex flex-col justify-center items-center gap-y-4'>
@@ -93,7 +88,7 @@ const RegisterUser = () => {
               )
           }
         </div>
-      </div>
+      </BgTemplate>
     </div>
   );
 };

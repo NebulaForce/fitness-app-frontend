@@ -72,6 +72,34 @@ export function useContract() {
     }
   };
 
+  const registerNewCoach = async (coachAddress: `0x${string}`, name: string, email: string) => {
+    try {
+      await writeContract({
+        abi,
+        address: contractAddress,
+        functionName: 'addCoach',
+        args: [coachAddress, name, email],
+      });
+    } catch (error) {
+      console.error('Error executing registerCoach:', error);
+      throw error;
+    }
+  };
+
+  const assignCoach = async (userAddress: `0x${string}`, coachAddress: `0x${string}`) => {
+    try {
+      await writeContract({
+        abi,
+        address: contractAddress,
+        functionName: 'assignCoach',
+        args: [userAddress, coachAddress],
+      });
+    } catch (error) {
+      console.error('Error executing assignCoach:', error);
+      throw error;
+    }
+  };
+
   return {
     getOwner: () => owner,
     isOwner,
@@ -79,6 +107,8 @@ export function useContract() {
     isUser,
     getRole,
     registerNewUser,
+    registerNewCoach,
+    assignCoach,
     txData,
     txError,
     txStatus

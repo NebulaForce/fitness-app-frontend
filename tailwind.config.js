@@ -12,7 +12,7 @@ export default {
       colors: {
         'primary': 'rgb(0, 80, 143)',
         'danger': 'rgb(143, 0, 52)',
-        'transparent-white': 'rgba(255, 255, 255, 0.6)',
+        'transparent-white': 'rgba(255, 255, 255, 0.85)',
       }
     },
   },
