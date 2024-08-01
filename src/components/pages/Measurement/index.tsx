@@ -27,7 +27,6 @@ const LogMeasurement = () => {
   const { getLatestMeasurement } = useContract();
 
   const measurementData = getLatestMeasurement();
-  console.log(measurementData);
 
   useEffect(() => {
     if (measurementData) {

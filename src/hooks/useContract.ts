@@ -4,7 +4,7 @@ import { ADDRESS_ZERO, EMPTY_STRING } from '../constants/common'
 
 export function useContract() {
 
-  const contractAddress = '0xc4B93b3b50235e035f924a1818A6F387e390851E'; //TODO: Change this to the address of your deployed contract
+  const contractAddress = '0x8fE793Bf8E33Eb3739C87eae30E5Fa032e9F5ee7'; //TODO: Change this to the address of your deployed contract
 
   const { address: accountAddress } = useAccount();
 
@@ -36,9 +36,18 @@ export function useContract() {
     args: [accountAddress || ADDRESS_ZERO],
   });
 
+  const { data: goalData } = useReadContract({
+    abi,
+    address: contractAddress,
+    functionName: 'userGoals',
+    args: [accountAddress || ADDRESS_ZERO],
+  });
+
   // User data
 
   const getLatestMeasurement = () => { return measurementData };
+
+  const getGoalData = () => { return goalData };
 
   // Utility functions for roles
   const isOwner = owner === accountAddress;
@@ -145,6 +154,7 @@ export function useContract() {
     isCoach,
     isUser,
     getLatestMeasurement,
+    getGoalData,
     getRole,
     registerNewUser,
     registerNewCoach,
